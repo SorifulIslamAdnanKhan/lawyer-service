@@ -1,0 +1,24 @@
+.footer{
+    background-color: rgb(53, 53, 53);
+    color: rgb(255, 253, 253);
+    text-align: center;
+    padding: 40px;
+}
+.footer-logo{
+    width: 80px;
+}
+.footer-address{
+    margin-top: 30px;
+}
+.office-hour{
+    margin-top: 30px;
+    padding: 10px;
+}
+.copyright{
+    border-top: 1px solid rgb(102, 102, 102);
+    text-align: center;
+    padding: 20px;
+}
+.copyright p{
+    margin-top: 40px;
+}
