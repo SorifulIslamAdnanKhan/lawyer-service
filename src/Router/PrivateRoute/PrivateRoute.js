@@ -13,7 +13,7 @@ const PrivateRoute = ({children}) => {
             <span className="visually-hidden">Loading...</span>
         </Spinner>
     }
-    if(user){
+    if(!user){
         return <Navigate to='/login' state={{ from: location }} replace></Navigate>
     }
     

@@ -6,9 +6,12 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { updateProfile } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 const Signup = () => {
 
+    const auth = getAuth();
     const { createUser } = useContext(AuthContext);
     const [error, setError] = useState('');
 
@@ -18,23 +21,35 @@ const Signup = () => {
 
     const handleSignUp = (event) => {
         event.preventDefault();
+
         const form = event.target;
         const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        const photoURL = form.photoURL.value;
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                newLoginUser();
                 setError('');
                 form.reset();
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message);
             })
+
+        const newLoginUser = () => {
+            updateProfile(auth.currentUser, {
+                displayName: name,
+                photoURL: photoURL,
+            })
+            .then(() => { })
+            .catch(error => {
+                    setError(error.message);
+                })
+        }
     }
 
     return (
