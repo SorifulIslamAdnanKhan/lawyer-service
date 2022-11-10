@@ -1,0 +1,9 @@
+.blog-page{
+    width: 80%;
+    margin: 0 auto;
+}
+.blog-page h2{
+    padding: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
