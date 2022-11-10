@@ -8,6 +8,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
 
@@ -40,6 +41,9 @@ const Login = () => {
 
     return (
         <section className='login-area'>
+            <Helmet>
+                <title>Login - AKL Lawyer Service</title>
+            </Helmet>
             <Container>
                 <Row>
                     <Col>

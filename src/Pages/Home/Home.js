@@ -7,10 +7,14 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { FaMoneyBill, FaMoneyCheckAlt, FaUserCircle, FaUsers } from 'react-icons/fa';
 import './Home.css';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Home - AKL Lawyer Service</title>
+            </Helmet>
             <section className='hero-area'>
                 <div className="hero-text">
                     <h2>Adam Kavin</h2>

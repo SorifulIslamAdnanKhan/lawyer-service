@@ -8,6 +8,7 @@ import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { updateProfile } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
+import { Helmet } from 'react-helmet-async';
 
 const Signup = () => {
 
@@ -45,8 +46,8 @@ const Signup = () => {
                 displayName: name,
                 photoURL: photoURL,
             })
-            .then(() => { })
-            .catch(error => {
+                .then(() => { })
+                .catch(error => {
                     setError(error.message);
                 })
         }
@@ -54,6 +55,9 @@ const Signup = () => {
 
     return (
         <section className='login-area'>
+            <Helmet>
+                <title>Sign UP - AKL Lawyer Service</title>
+            </Helmet>
             <Container>
                 <Row>
                     <Col>
