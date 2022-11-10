@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -6,9 +6,21 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import logo from '../../../../src/images/logo.png';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import './Header.css';
 
 const Header = () => {
+
+    const { user, logout } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logout()
+            .then(() => { })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -23,13 +35,16 @@ const Header = () => {
                         <Nav.Link as={Link} to={'/blog'}>Blog</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link as={Link} to={'/login'}>Login</Nav.Link>
-                        <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                            <NavDropdown.Item as={Link} to={'/'}>Action</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to={'/'}>Another action</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to={'/'}>Something</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to={'/'}>Separated link</NavDropdown.Item>
-                        </NavDropdown>
+                        {
+                            user?.uid ?
+                                <NavDropdown title={user?.displayName} id="collasible-nav-dropdown">
+                                    <NavDropdown.Item as={Link} to={'/'}>Add Service</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to={'/'}>My Review</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} onClick={handleLogout}>Logout</NavDropdown.Item>
+                                </NavDropdown>
+                                :
+                                <Nav.Link as={Link} to={'/login'}>Login</Nav.Link>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
