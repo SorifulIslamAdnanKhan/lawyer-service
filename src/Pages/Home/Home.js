@@ -38,7 +38,7 @@ const Home = () => {
                             services.map(service =>
                                 <Col>
                                     <Card>
-                                        <Card.Img variant="top" src={service.image} />
+                                        <Card.Img variant="top" src={service.image} className='service-image' />
                                         <Card.Body>
                                             <Card.Title>{service.serviceName}</Card.Title>
                                             <Card.Text>

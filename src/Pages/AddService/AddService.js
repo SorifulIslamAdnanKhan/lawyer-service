@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
-import { Navigate } from 'react-router-dom';
 import './AddService.css';
 import { toast } from 'react-toastify';
 
@@ -44,7 +43,6 @@ const AddService = () => {
                 toast("Service added successfully!");
                 form.reset();
             }
-            <Navigate to='/services'></Navigate>
         })
         .catch(setError(''))
     }

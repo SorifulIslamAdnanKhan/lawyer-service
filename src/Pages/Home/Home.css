@@ -17,6 +17,9 @@
     text-align: center;
     background-color: #dddddd;
 }
+.service-image{
+    height: 230px;
+}
 .service-title{
     margin-bottom: 30px;
 }
