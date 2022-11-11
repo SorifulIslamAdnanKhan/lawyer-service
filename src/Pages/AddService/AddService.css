@@ -1,4 +1,4 @@
-.login-area{
+.service-area{
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -6,10 +6,9 @@
     margin-bottom: 30px;
     text-align: center;
 }
-.login-form{
+.service-form{
     margin: 0 auto;
+
     padding: 5px;
-}
-.sign-up-area a{
-    text-decoration: none;
+    text-align: start;
 }

@@ -31,7 +31,6 @@ const Signup = () => {
 
         createUser(email, password)
             .then(result => {
-                const user = result.user;
                 newLoginUser();
                 setError('');
                 form.reset();
