@@ -9,6 +9,8 @@ import { FaMoneyBill, FaMoneyCheckAlt, FaUserCircle, FaUsers } from 'react-icons
 import './Home.css';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLoaderData } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const Home = () => {
 
@@ -38,7 +40,11 @@ const Home = () => {
                             services.map(service =>
                                 <Col>
                                     <Card>
+                                    <PhotoProvider>
+                                        <PhotoView src={service.image}>
                                         <Card.Img variant="top" src={service.image} className='service-image' />
+                                        </PhotoView>
+                                    </PhotoProvider>
                                         <Card.Body>
                                             <Card.Title>{service.serviceName}</Card.Title>
                                             <Card.Text>
