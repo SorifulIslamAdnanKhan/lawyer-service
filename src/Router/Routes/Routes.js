@@ -3,12 +3,13 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../layouts/Main';
 import Error from '../../Error/Error';
 import Home from '../../Pages/Home/Home';
-import Services from '../../Pages/Services/Services';
+import Services from '../../Pages/AllServices/AllServices';
 import Reviews from '../../Pages/Reviews/Reviews';
 import Blog from '../../Pages/Blog/Blog';
 import Login from '../../Login/Login';
 import Signup from '../../Signup/Signup';
 import AddService from '../../Pages/AddService/AddService';
+import AllServices from '../../Pages/AllServices/AllServices';
 
   export const router = createBrowserRouter([
         {
@@ -26,8 +27,9 @@ import AddService from '../../Pages/AddService/AddService';
                     element: <AddService></AddService>
                 },
                 {
-                    path: '/services',
-                    element: <Services></Services>
+                    path: '/all-services',
+                    element: <AllServices></AllServices>,
+                    loader: ()=> fetch(`https://akl-lawyer-service-server.vercel.app/all-services`)
                 },
                 {
                     path: '/reviews',

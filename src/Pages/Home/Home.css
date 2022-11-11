@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 750px;
-    padding: 20px;
+    padding: 10px;
 }
 .hero-text{
     text-align: center;
@@ -13,17 +13,20 @@
 }
 /* Service Area */
 .service-area{
-    padding: 50px;
+    padding: 10px;
     text-align: center;
     background-color: #dddddd;
 }
 .service-title{
-    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.service-all-button{
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 /* Why Area */
 .why-area{
-    padding: 50px;
+    padding: 10px;
     text-align: center;
     background-color: #dddddd;
 }
@@ -37,7 +40,7 @@
 
 /* Contact Area */
 .contact-area{
-    padding: 50px;
+    padding: 10px;
     background-color: #dddddd;
 }
 .contact-details{

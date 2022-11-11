@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 import { FaMoneyBill, FaMoneyCheckAlt, FaUserCircle, FaUsers } from 'react-icons/fa';
 import './Home.css';
 import { Helmet } from 'react-helmet-async';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
 
@@ -44,16 +44,16 @@ const Home = () => {
                                             <Card.Text>
                                                 {service.price}</Card.Text>
                                             <Card.Text>
-                                                {service.serviceDetails}
+                                                {service.serviceDetails.length > 100 ? service.serviceDetails.slice(0, 100) : service.serviceDetails}
                                             </Card.Text>
-                                            <Button className='btn btn-primary'>Service Details</Button>
+                                            <Link className='btn btn-primary'>Service Details</Link>
                                         </Card.Body>
                                     </Card>
                                 </Col>)
                         }
                     </Row>
-                    <div className='text-center'>
-                        <Button className='btn btn-primary'>See All Services</Button>
+                    <div className='text-center service-all-button'>
+                        <Link to='/all-services' className='btn btn-primary'>See All Services</Link>
                     </div>
                 </Container>
 

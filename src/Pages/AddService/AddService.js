@@ -50,7 +50,7 @@ const AddService = () => {
     }
 
     return (
-        <section className='service-area'>
+        <section className='add-service-area'>
             <Helmet>
                 <title>Add Service - AKL Lawyer Service</title>
             </Helmet>
