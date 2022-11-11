@@ -10,6 +10,7 @@ import Login from '../../Login/Login';
 import Signup from '../../Signup/Signup';
 import AddService from '../../Pages/AddService/AddService';
 import AllServices from '../../Pages/AllServices/AllServices';
+import ServiceDetails from '../../Pages/ServiceDetails/ServiceDetails';
 
   export const router = createBrowserRouter([
         {
@@ -30,6 +31,11 @@ import AllServices from '../../Pages/AllServices/AllServices';
                     path: '/all-services',
                     element: <AllServices></AllServices>,
                     loader: ()=> fetch(`https://akl-lawyer-service-server.vercel.app/all-services`)
+                },
+                {
+                    path: '/service-details/:id',
+                    element: <ServiceDetails></ServiceDetails>,
+                    loader: ({params})=> fetch(`https://akl-lawyer-service-server.vercel.app/all-services/${params.id}`)
                 },
                 {
                     path: '/reviews',

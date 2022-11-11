@@ -46,7 +46,7 @@ const Home = () => {
                                             <Card.Text>
                                                 {service.serviceDetails.length > 100 ? service.serviceDetails.slice(0, 100) : service.serviceDetails}
                                             </Card.Text>
-                                            <Link className='btn btn-primary'>Service Details</Link>
+                                            <Link to={`/service-details/${service._id}`} className='btn btn-primary'>Service Details</Link>
                                         </Card.Body>
                                     </Card>
                                 </Col>)

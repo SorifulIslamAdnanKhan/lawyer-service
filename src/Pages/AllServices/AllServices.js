@@ -31,7 +31,7 @@ const AllServices = () => {
                                             <Card.Text>
                                                 {service.serviceDetails}
                                             </Card.Text>
-                                            <Link className='btn btn-primary'>Service Details</Link>
+                                            <Link to={`/service-details/${service._id}`} className='btn btn-primary'>Service Details</Link>
                                         </Card.Body>
                                     </Card>
                                 </Col>)
