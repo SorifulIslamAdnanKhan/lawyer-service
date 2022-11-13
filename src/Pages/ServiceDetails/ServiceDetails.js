@@ -14,6 +14,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const ServiceDetails = () => {
     const service = useLoaderData();
     const { user } = useContext(AuthContext);
+    const [control, setControl] = useState(false);
 
     const { _id, image, serviceName, serviceDetails, price } = service;
 
@@ -25,7 +26,7 @@ const ServiceDetails = () => {
         fetch(`https://akl-lawyer-service-server.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data));
-    }, [])
+    }, [control, _id])
 
     const handleReview = (event) => {
 
@@ -58,6 +59,7 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
+                    setControl(!control);
                     toast("Review added successfully!");
                     form.reset();
                 }
@@ -96,7 +98,7 @@ const ServiceDetails = () => {
                             <>
                                 {
                                 reviews.map(review =>
-                                    <Col md={4}>
+                                    <Col xs={1} md={3} className="g-4">
                                         <div className='bg-dark text-white p-5'>
                                             <Image src={review.image} className='img-thumbnail' />
                                             <p>Reviewer: {review.reviewer}</p>
