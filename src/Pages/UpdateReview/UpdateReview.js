@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Navigate, useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 
@@ -10,7 +11,7 @@ const UpdateReview = () => {
 
     const updateSingleReview = (event) => {
         event.preventDefault();
-        console.log(storedReview);
+
         fetch(`https://akl-lawyer-service-server.vercel.app/singlereview/${singleReview._id}`, {
             method: 'PATCH',
             headers: {
@@ -23,7 +24,6 @@ const UpdateReview = () => {
                 if (data.modifiedCount > 0) {
                     toast("Review updated successfully!");
                 }
-                <Navigate to='/reviews'></Navigate>;
             })
     }
 
@@ -38,6 +38,9 @@ const UpdateReview = () => {
     return (
 
         <div>
+            <Helmet>
+                <title>Update Review - AKL Lawyer Service</title>
+            </Helmet>
             <form onSubmit={updateSingleReview}  className='service-form'>
                 <div className="mb-3">
                     <label for="recipient-name" className="col-form-label">Rating</label>

@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 
 const Reviews = () => {
@@ -46,7 +47,10 @@ const Reviews = () => {
 
     return (
         <div className='p-5'>
-            <h3 className='text-center p-5'>All Reviews</h3>
+            <Helmet>
+                <title>My Reviews - AKL Lawyer Service</title>
+            </Helmet>
+            <h3 className='text-center p-5'>My Reviews</h3>
             {
                 user?.email ?
                     <Table striped bordered hover responsive="sm" >
