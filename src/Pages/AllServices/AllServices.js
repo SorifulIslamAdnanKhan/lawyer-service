@@ -10,7 +10,11 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 const AllServices = () => {
 
+    
     const allServices = useLoaderData();
+
+    console.log(allServices);
+    
     return (
         <section className='service-area'>
             <Helmet>

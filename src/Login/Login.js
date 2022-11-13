@@ -9,6 +9,7 @@ import './Login.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import { setAuthToken } from '../api/auth';
 
 const Login = () => {
 
@@ -29,7 +30,7 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                setAuthToken(user);
                 setError('');
                 form.reset();
                 navigate(from, {replace: true})

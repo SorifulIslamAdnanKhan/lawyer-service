@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { updateProfile } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
 import { Helmet } from 'react-helmet-async';
+import { setAuthToken } from '../api/auth';
 
 const Signup = () => {
 
@@ -31,6 +32,8 @@ const Signup = () => {
 
         createUser(email, password)
             .then(result => {
+                const user = result.user;
+                setAuthToken(user);
                 newLoginUser();
                 setError('');
                 form.reset();

@@ -11,6 +11,7 @@ import AddService from '../../Pages/AddService/AddService';
 import AllServices from '../../Pages/AllServices/AllServices';
 import ServiceDetails from '../../Pages/ServiceDetails/ServiceDetails';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import UpdateReview from '../../Pages/UpdateReview/UpdateReview';
 
   export const router = createBrowserRouter([
         {
@@ -38,8 +39,13 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
                     loader: ({params})=> fetch(`https://akl-lawyer-service-server.vercel.app/all-services/${params.id}`)
                 },
                 {
+                    path: '/update/:id',
+                    element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
+                    loader: ({params})=> fetch(`https://akl-lawyer-service-server.vercel.app/singlereview/${params.id}`)
+                },
+                {
                     path: '/reviews',
-                    element: <Reviews></Reviews>
+                    element: <PrivateRoute><Reviews></Reviews></PrivateRoute>,
                 },
                 {
                     path: '/blog',

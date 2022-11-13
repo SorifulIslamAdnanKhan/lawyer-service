@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
 import { Button } from 'react-bootstrap';
+import { setAuthToken } from '../api/auth';
 
 
 const SocialLogin = () => {
@@ -18,6 +19,7 @@ const SocialLogin = () => {
         googleSignIn()
         .then(result=>{
             const user = result.user;
+            setAuthToken(user);
             setError('');
             navigate(from, {replace: true});
         })
